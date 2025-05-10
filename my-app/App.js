@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import * as Notifications from 'expo-notifications';
 
 import { defineTask } from 'expo-task-manager';
 
+const BACKGROUND_NOTIFICATION_TASK = 'BACKGROUND-NOTIFICATION-TASK';
 defineTask(BACKGROUND_NOTIFICATION_TASK, async (params) => {
   const taskPayload = params.data;
   const isNotificationResponse = 'actionIdentifier' in taskPayload;
@@ -10,6 +12,7 @@ defineTask(BACKGROUND_NOTIFICATION_TASK, async (params) => {
      console.log('this hook NOW got triggered.');
   }
 });
+Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK).catch(console.error);
 
 export default function App() {
   return (
