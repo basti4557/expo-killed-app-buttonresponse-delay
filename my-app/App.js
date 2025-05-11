@@ -16,7 +16,7 @@ Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK).catch(console.erro
 
 export default function App() {
   useEffect(() => {
-    Notifications.setNotificationCategoryAsync("answerProsit", [
+    Notifications.setNotificationCategoryAsync("testCategory", [
       {
         identifier: "test",
         buttonTitle: "Test Press!",
