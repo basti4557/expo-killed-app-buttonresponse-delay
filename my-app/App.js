@@ -16,6 +16,13 @@ Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK).catch(console.erro
 
 export default function App() {
   useEffect(() => {
+    Notifications.setNotificationChannelAsync('default', {
+      name: 'default',
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: '#FF231F7C'
+    });
+    
     Notifications.setNotificationCategoryAsync("testCategory", [
       {
         identifier: "test",
