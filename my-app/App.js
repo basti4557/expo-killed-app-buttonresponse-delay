@@ -15,6 +15,18 @@ defineTask(BACKGROUND_NOTIFICATION_TASK, async (params) => {
 Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK).catch(console.error);
 
 export default function App() {
+  useEffect(() => {
+    Notifications.setNotificationCategoryAsync("answerProsit", [
+      {
+        identifier: "test",
+        buttonTitle: "Test Press!",
+        options: {
+          isAuthenticationRequired: false,
+          opensAppToForeground: false
+        }
+      },
+    ]);
+  }, [])
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
